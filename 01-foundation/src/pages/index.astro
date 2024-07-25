@@ -1,18 +1,34 @@
 ---
+
+import MainLayout from '../components/MainLayout.astro';
+import Navbar from '../components/Navbar.astro';
 // Server Only 
 const name = 'Alberto Urquiola Cabrera';
 const title = 'Home Page'
 ---
+<MainLayout title="Home Page">
+	<h1>{name}</h1>
+		<p>Momento actual: {new Date().toLocaleTimeString()}</p>
+		<p id="current-time">"Momento actual real:</p>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<h1>{name}</h1>
-	</body>
-</html>
+		<footer>
+			
+		</footer>
+
+		<script>
+			// Client Only
+			const footer = document.querySelector('footer')as HTMLElement;
+			const currentTimeParagraph = document.querySelector('#current-time')as HTMLParagraphElement;
+
+			const currentYear = new Date().getFullYear();
+
+			footer.innerText = `Año: ${currentYear}`;
+		
+
+		</script>
+		
+	</MainLayout>
+
+
+		
+	
